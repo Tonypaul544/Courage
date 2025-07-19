@@ -35,11 +35,17 @@ body {
   padding: 0;
   line-height: 1.6;
   overflow: hidden;
+  animation: fadeIn 1s;
+}
 
-  /* background-image: url(images/bgbgg-removebg-preview.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 header {
@@ -251,6 +257,19 @@ header nav ul {
   height: 85%;
   display: flex;
   bottom: 0;
+  animation: slideDown 1s;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
