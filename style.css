@@ -1,0 +1,223 @@
+
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Courgette;
+}
+
+:root {
+  --heading: 4.5em;
+  --subHeading: 2em;
+  --green: rgb(70, 127, 188);
+}
+
+.courgette-regular {
+  font-family: "Courgette", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sofadi-one-regular {
+  font-family: "Sofadi One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow: hidden;
+
+  /* background-image: url(images/bgbgg-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: var(--green);
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 5px rgba(182, 252, 240, 0.489);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+  color: white;
+
+  * {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  box-sizing: border-box;
+  font-family: Sofadi One, sans-serif;
+}
+
+.sofadi-one-regular {
+  font-family: "courgette-regular", system-ui;
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+header nav ul {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  text-decoration: none;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+header nav ul a {
+  text-decoration: none;
+  color: white;
+    &:hover {
+      color: rgb(221, 214, 214);
+      border-bottom: 1px solid white;
+    }
+}
+
+.headerIcons {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: white;
+}
+
+.headerIcons i {
+  color: white;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  text-align: center;
+  flex-wrap: wrap;
+  /* background-color: aqua; */
+}
+
+/* Left side */
+.leftSide {
+  width: 60%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 50px;
+  /* padding-top: 50px; */
+  /* background-color: blueviolet; */
+}
+
+
+.hello {
+  font-size: var(--heading);
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  from {
+    transform: scale(30%);
+  }
+}
+
+.myName {
+  font-size: var(--subHeading);
+}
+
+
+.im {
+  font-weight: 500;
+}
+
+.AboutMe {
+  font-size: 1.3em;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+/* desc */
+.desc {
+  width: 80%;
+  height: auto;
+  margin: 30px auto;
+}
+
+/* action buttons */
+.buttons {
+  width: fit-content;
+  height: 100px;
+  padding: 0 10px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: slideUp 1s;
+  /* background-color: aqua; */
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+}
+
+.buttons button {
+  width: 150px;
+  height: 40px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--green);
+  margin: auto;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+}
+
+/* RIGHT SIDE */
+.rightSide {
+  width: 40%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: end;
+  justify-content: right;
+}
+
+.rightSide img.profilePic{
+  width: 73%;
+  height: 85%;
+  display: flex;
+  bottom: 0;
+}
