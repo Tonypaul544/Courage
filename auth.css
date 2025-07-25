@@ -141,7 +141,7 @@ form.form {
 }
 
 .form button {
-  width: 100px;
+  width: 120px;
   height: 30px;
   display: flex;
   box-sizing: border-box;
@@ -150,10 +150,15 @@ form.form {
   margin: auto;
   border-radius: 8px;
   border: 1.5px solid;
-  font-size: .6em;
+  font-size: .8em;
+}
+
+.form button #returnBTN {
+  text-decoration: none;
 }
 
 #returnBTN{
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
