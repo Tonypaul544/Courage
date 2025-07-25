@@ -4,21 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images/portfolioProfile-removebg-preview.png" type="image/x-icon">
-  <meta name="description" content="A Front-end developer.">
-  <meta name="keywords" content="Courage, paul, portfolio, profile">
-  <meta name="author" content="Paul Nwodo (Courage)">
+  <meta name="description" content="I`m available to work both remotely and on-site">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=reply_all" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Sofadi+One&display=swap" rel="stylesheet">
-
   <title>Courage</title>
 </head>
 <body>
-  <header>
+
+   <header>
     <h2 class="logo">Courage</h2>
     <nav>
       <ul>
@@ -34,26 +35,25 @@
     </div>
   </header>
 
-  <div class="main">
-    <div class="leftSide">
-      <h1 class="hello">Hello,</h1>
-      <h3 class="myName"><small class="im">i am</small> Paul Nwodo</h3>
+  <div class="authPage">
+    <h1 class="authTitle">Fill out the form to get in touch with me!</h1>
+    <!-- <a href="index.html"><button class="return"> -->
 
-      <div class="desc">
-        <p class="AboutMe">A software engineer with a passion for building web applications. I love to learn new technologies and improve my skills.</p>
+    </button></a>
+    <form action="/submit" class="form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Type your name here.">
 
-        <div class="buttons">
-          <a href="auth.html">
-            <button class="action action1">Hire Me</button>
-          </a>
-          <button class="action action2">View Resume</button>
-        </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Type your email address".>
+
+      <label for="message">Message:</label> 
+      <textarea id="message" name="message" rows="4" required placeholder="Drop your comments or suggestions."></textarea>
+      <div class="buttons">
+        <a href="index.html" class="returnAn"><button class="returnBTN" id="returnBTN">Go back</button></a>
+        <button type="submit">Send Message</button>
       </div>
-    </div>
-
-    <div class="rightSide">
-      <img src="images/portfolioProfile-removebg-preview.png" alt="" class="profilePic">
-    </div>
+    </form>
   </div>
 </body>
 </html>
