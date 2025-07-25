@@ -165,4 +165,6 @@ form.form {
   color: #fff;
   background-color: brown;
   border-radius: 5px;
+  width: 120px;
+  height: 30px;
 }
