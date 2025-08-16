@@ -115,10 +115,10 @@ form.form {
   font-size: 25px;
   float: right;
   position: absolute;
-  display: none;
   animation: slideDown 1s;
   animation: slideOff 1s;
   animation: fadeout 1s;
+  display: none;
 }
 @keyframes fadeout {
   0% {

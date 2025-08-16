@@ -66,6 +66,20 @@ function Respond(e) {
     localStorage.setItem("email", email.value);
     localStorage.setItem("message", message.value);
 
+    //check if email is valid
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value)) {
+        emailError.style.display = "block";
+        emailError.style.color = "red";
+        emailError.innerHTML = "Please enter a valid email address.";
+        email.focus();
+        //remove the error message after 3 seconds
+        setTimeout(() => {
+          emailError.style.display = "none";
+        }, 3000);
+        return;
+    }
+
     // Display response message
     responce.style.display = "block";
     responce.style.animation = "slideDown 1s";
@@ -80,7 +94,7 @@ function Respond(e) {
             responce.style.display = "none";
           }, 800);
         }, 100);
-      }, 2000);
+      }, 6000);
 
     // Reset the form fields
   e.preventDefault();
@@ -98,30 +112,30 @@ function Respond(e) {
 }
 
   //check if the user has already submitted the form
-if (localStorage.getItem("username") && localStorage.getItem("email")) {
-    // Display the response message
-    responce.style.display = "block";
-    responce.style.animation = "slideDown 1s";
-    responce.style.backgroundColor = "aliceblue";
-    responce.innerHTML = "You have already submitted the form. Thank you for reaching out!";
-    //reset the response message after 5 seconds
-    setTimeout(() => {
-      responce.style.animation = "slideOff 1s";
-        setTimeout(() => {
-          responce.style.animation = "fadeout 1s";
-          setTimeout(() => {
-            responce.style.display = "none";
-          }, 800);
-        }, 100);
-      }, 5000);
+// if (localStorage.getItem("username") && localStorage.getItem("email")) {
+//     // Display the response message
+//     responce.style.display = "block";
+//     responce.style.animation = "slideDown 1s";
+//     responce.style.backgroundColor = "aliceblue";
+//     responce.innerHTML = "You have already submitted the form. Thank you for reaching out!";
+//     //reset the response message after 5 seconds
+//     setTimeout(() => {
+//       responce.style.animation = "slideOff 1s";
+//         setTimeout(() => {
+//           responce.style.animation = "fadeout 1s";
+//           setTimeout(() => {
+//             responce.style.display = "none";
+//           }, 800);
+//         }, 100);
+//       }, 5000);
   
-    //check if the form fields are not empty
-    // if (localStorage.getItem("username") !== "" && localStorage.getItem("email") !== "" && localStorage.getItem("message") !== "") {
-    //     username.value = localStorage.getItem("username");
-    //     email.value = localStorage.getItem("email");
-    //     message.value = localStorage.getItem("message");
-    // }
-}
+//     //check if the form fields are not empty
+//     // if (localStorage.getItem("username") !== "" && localStorage.getItem("email") !== "" && localStorage.getItem("message") !== "") {
+//     //     username.value = localStorage.getItem("username");
+//     //     email.value = localStorage.getItem("email");
+//     //     message.value = localStorage.getItem("message");
+//     // }
+// }
 
   // fetch("/submit", {
   //   method: "POST",
@@ -144,19 +158,3 @@ if (localStorage.getItem("username") && localStorage.getItem("email")) {
   // });
 
 
-
-
-
-
-
-
-
-
-// const Navbar = document.getElementById("navbar");
-// const Hambuger = document.getElementById("hamboger");
-
-// Hambuger.addEventListener("click", showNav);
-// function showNav(e) {
-//   e.preventDefault()
-//   Navbar.classList.toggle("show");
-// }
