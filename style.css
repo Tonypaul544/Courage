@@ -137,6 +137,10 @@ header {
   }
 }
 
+.hamboger {
+  display:  none;
+}
+
 header nav ul {
   width: fit-content;
   height: 100%;
@@ -247,15 +251,16 @@ header nav ul {
   height: 100%;
   margin: auto;
   display: flex;
-  align-items: end;
-  justify-content: right;
+  align-items: center;
+  justify-content: center;
 }
 
 .rightSide img.profilePic{
   width: 80%;
-  height: 90%;
+  height: 400px;
   display: flex;
   animation: slideDown 1s;
+  border-radius: 100%;
 }
 
 @keyframes slideDown {
@@ -272,6 +277,12 @@ header nav ul {
 
 
 @media screen and (max-width: 768px) {
+
+  .hamboger {
+  display:  flex;
+}
+
+
   body {
     background-color: rgb(208, 251, 237);
     width: 100%;
@@ -285,13 +296,42 @@ header nav ul {
 
     header nav ul {
     width: fit-content;
-    height: 100%;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    float: right;
+    right: 0;
     display: none;
-    align-items: center;
+    margin-top: 22px;
+    border-top: 1px solid #3f3d3db7;
+    flex-direction: row;
+    background-color: var(--green);
+    align-items: left;
     list-style-type: none;
     text-decoration: none;
+    text-align: left;
+    justify-content: space-between;
+    padding: 5px 15px;
     gap: 30px;
     box-sizing: border-box;
+
+    animation: enterFromTop .5s;
+  }
+
+  .show {
+    display: flex;
+  }
+
+  @keyframes enterFromTop {
+     0% {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
   }
 
   .main {

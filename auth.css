@@ -38,7 +38,7 @@
   text-wrap: wrap;
   display: flex;
   margin: 20px auto;
-  margin-top: 2em;
+  margin-top: 2.5em;
   font-size: 1.5em;
   text-align: center;
   justify-content: center;
@@ -95,6 +95,72 @@ form.form {
   font-size: 3em;
 }
 
+.responce {
+  max-width: 400px;
+  min-width: 200px;
+  z-index: 0;
+  height: auto;
+  border-radius: 5px;
+  background-color: aliceblue;
+  box-shadow: 0 0 3px .2px gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  top: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 25px;
+  float: right;
+  position: absolute;
+  display: none;
+  animation: slideDown 1s;
+  animation: slideOff 1s;
+  animation: fadeout 1s;
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+  
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.contactIcons {
+  width: fit-content;
+  height: auto;
+  display: flex;
+  padding: 10px;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .form input {
   width: 95%;
   height: 35px;
@@ -132,8 +198,8 @@ form.form {
   gap: 10px;
   /* background-color: brown; */
   margin: auto;
-  margin-top: 20px;
-  padding: 5px 10px;
+  margin-top: 10px;
+  padding: 5px;
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -151,6 +217,7 @@ form.form {
   border-radius: 8px;
   border: 1.5px solid;
   font-size: .8em;
+  text-decoration: none;
 }
 
 .form button #returnBTN {
@@ -165,6 +232,6 @@ form.form {
   color: #fff;
   background-color: brown;
   border-radius: 5px;
-  width: 120px;
-  height: 30px;
+  /* width: 120px;
+  height: 30px; */
 }

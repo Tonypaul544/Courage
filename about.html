@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="about.css">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=reply_all" />
 
@@ -24,7 +26,7 @@
     <nav>
       <ul id="navbar">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="auth.html">Contact</a></li>
       </ul>
@@ -40,36 +42,19 @@
     </div>
   </header>
 
-  <div class="authPage">
-    <h1 class="authTitle" id="authTitle">Fill out the form to get in touch with me!</h1>
-    <!-- <a href="index.html"><button class="return"> -->
-
-      <div class="responce" id="responce">
-        <h5 class="responceMSG">Sorry, your message could not be sent at this time. Tap on the whatsapp/Gmail icon below to send me a direct message.</h5>
-        <div class="contactIcons">
-          <a href="wa.me/+2348100732708"><i class="fa-brands fa-whatsapp" style="color: #000;"></i></a>
-          <a href="mailto:paulnwodotochukwu180@gmail.com"><i class="fa-solid fa-envelope" style="color: #000;"></i></a>
-        </div>
-      </div>
-
-    <form action="/submit" class="form">
-      <label for="name">Full name:</label>
-      <input type="text" id="username" name="name" required placeholder="Type your full name here.">
-      <p class="nameError" id="nameError"></p>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required placeholder="Type your email address".>
-      <p class="emailError" id="emailError"></p>
-
-      <label for="message">Message:</label> 
-      <textarea id="message" name="message" rows="4" required placeholder="Type your message here..."></textarea>
-      <p class="messageError" id="messageError"></p>
-    </form>
+  
+   <div class="aboutPage">
+    <h1 class="aboutTitle">About Me</h1>
+    <p class="aboutDesc">
+  Hi, I'm Courage from Enugu state, Nigeria. I`m a passionate software engineer dedicated to crafting seamless and impactful web experiences. With a love for learning and a drive for innovation, I thrive on turning ideas into reality through code. Whether collaborating remotely or on-site. <br> 
+  <p class="secondLine aboutDesc">I have been working as a software engineer for over 2 years, specializing in front-end development. I have a strong foundation in HTML, CSS, and JavaScript, and I am proficient in React and Node.js. My goal is to create user-friendly and visually appealing web applications that provide an exceptional user experience. I am always eager to learn new technologies and improve my skills. Let's connect and explore how we can work together!</p>
+</p>
+    
     <div class="buttons">
-      <a href="./index.html" class=""><button class="returnBTN" id="returnBTN">Go back</button></a>
+      <a href="./index.html" class=""><button class="returnBTN" id="returnBTN">View Projects</button></a>
       <button type="submit" id="SendMessage">Send Message</button>
     </div>
-  </div> 
+   </div>
   <script src="header.js"></script>
   <script src="auth.js"></script>
 </body>
