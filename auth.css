@@ -103,7 +103,7 @@ form.form {
   border-radius: 5px;
   background-color: aliceblue;
   box-shadow: 0 0 3px .2px gray;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 10px;
   margin: auto;
@@ -234,4 +234,15 @@ form.form {
   border-radius: 5px;
   /* width: 120px;
   height: 30px; */
+}
+
+
+
+/* MOBILE */
+
+@media screen and (max-width: 768px) {
+  
+  .responce {
+    display: none;
+  }
 }
