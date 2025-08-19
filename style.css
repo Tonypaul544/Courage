@@ -34,7 +34,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  overflow: hidden;
+  overflow-x: hidden;
   animation: fadeIn 1s;
 }
 
@@ -166,15 +166,13 @@ header nav ul {
 /* Left side */
 .leftSide {
   width: 59%;
-  height: 90%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
-  padding-top: 30px;
-  margin-top: 50px;
-  /* padding-top: 50px; */
+  padding: none;
   /* background-color: blueviolet; */
 }
 
@@ -374,24 +372,24 @@ header nav ul {
   .rightSide {
     all: unset;
     width: 80%;
-    height: 40%;
+    height: 35%;
     margin: auto;
     margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: brown; */
+    background-color: brown;
   }
 
   .rightSide img.profilePic{
-  width: 80%;
-  height: 100%;
+  width: 200px;
+  height: 210px;
   max-width: 350px;
   max-height: 380px;
   border-radius: 100%;
   display: flex;
   margin: auto;
-  margin-top: 10px;
+  /* margin-bottom: 10px; */
   display: flex;
   bottom: 0;
 }
@@ -400,7 +398,7 @@ header nav ul {
     font-size: 2.5em;
     font-weight: 600;
     animation: fade-in 1s;
-    margin-top: 80px;
+    margin-top: 70px;
   }
 
   .AboutMe {
@@ -423,7 +421,9 @@ header nav ul {
     height: fit-content;
     padding: 5px 10px;
     margin: auto;
-    margin-top: 10px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
