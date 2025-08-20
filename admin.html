@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Add Projects</title>
+  <link rel="stylesheet" href="project.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .adminPanel {
+      max-width: 500px;
+      margin: 10% auto;
+      margin-bottom: 10%;
+      padding: 2em;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .adminPanel h2 {
+      margin-bottom: 1em;
+      color: #2d5c3b;
+      font-family: 'Sofadi One', cursive;
+    }
+    .adminPanel input, .adminPanel textarea {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.7em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      font-family: inherit;
+    }
+    .adminPanel button {
+      padding: 0.7em 2em;
+      border-radius: 8px;
+      border: none;
+      background: #2d5c3b;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      font-family: inherit;
+      display: flex;
+      margin: auto;
+      margin-top: 20px;
+      /* margin-bottom: 1em; */
+    }
+    .adminPanel .success {
+      color: green;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<header>
+    <h2 class="logo">Courage</h2>
+    <nav>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="auth.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="headerIcons">
+      <a href="https://github.com/tonypaul544" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://paulnwodo.medium.com" target="_blank"><i class="fab fa-medium"></i></a>
+      <a href="https://twitter.com/courage_xbt" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <div class="hamboger">
+      <i class="fa-solid fa-bars" id="hamboger"></i>
+    </div>
+  </header>
+<body>
+  <div class="adminPanel">
+    <h2>Add New Project</h2>
+    <form id="addProjectForm">
+      <input type="text" id="projectName" placeholder="Project Name" required>
+      <textarea id="projectInfo" placeholder="Project Description" required></textarea>
+      <input type="text" id="projectImage" placeholder="Image URL (optional)">
+      <button type="submit">Add Project</button>
+    </form>
+    <div class="success" id="successMsg"></div>
+  </div>
+  <script>
+    // Store new project in localStorage
+    document.getElementById('addProjectForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('projectName').value.trim();
+      const info = document.getElementById('projectInfo').value.trim();
+      const image = document.getElementById('projectImage').value.trim();
+
+      if (!name || !info) return;
+
+      const newProject = { name, info, image };
+      let projects = JSON.parse(localStorage.getItem('projects')) || [];
+      projects.push(newProject);
+      localStorage.setItem('projects', JSON.stringify(projects));
+
+      document.getElementById('successMsg').textContent = "Project added successfully!";
+      this.reset();
+      setTimeout(() => {
+        document.getElementById('successMsg').textContent = "";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

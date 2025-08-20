@@ -383,7 +383,7 @@ header nav ul {
 
   .rightSide img.profilePic{
   width: 200px;
-  height: 210px;
+  height: 100%;
   max-width: 350px;
   max-height: 380px;
   border-radius: 100%;

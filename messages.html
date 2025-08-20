@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Messages</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="auth.css">
+  <style>
+    .messagesPanel {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 2em;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .messagesPanel h2 {
+      margin-bottom: 1em;
+      color: #2d5c3b;
+      font-family: 'Sofadi One', cursive;
+    }
+    .messageList {
+      width: 100%;
+      list-style: none;
+      padding: 0;
+    }
+    .messageItem {
+      background: #f7fafc;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(45,92,59,0.07);
+      margin-bottom: 1.5em;
+      padding: 1.5em 1em;
+      font-family: 'Courgette', cursive;
+    }
+    .messageUser {
+      font-weight: bold;
+      color: #2d5c3b;
+      margin-bottom: 0.5em;
+    }
+    .messageEmail {
+      color: #555;
+      font-size: 0.95em;
+      margin-bottom: 0.5em;
+    }
+    .messageText {
+      color: #333;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<header>
+    <h2 class="logo">Courage</h2>
+    <nav>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="auth.html">Contact</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+        <li><a href="messages.html">Messages</a></li>
+      </ul>
+    </nav>
+    <div class="headerIcons">
+      <a href="https://github.com/tonypaul544" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://paulnwodo.medium.com" target="_blank"><i class="fab fa-medium"></i></a>
+      <a href="https://twitter.com/courage_xbt" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="hamboger">
+      <i class="fa-solid fa-bars" id="hamboger"></i>
+    </div>
+</header>
+<body>
+  <div class="messagesPanel">
+    <h2>User Messages</h2>
+    <ul class="messageList" id="messageList"></ul>
+  </div>
+  <script>
+    // Load messages from localStorage and display
+    function renderMessages() {
+      const messageList = document.getElementById('messageList');
+      messageList.innerHTML = '';
+      const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+      if (submissions.length === 0) {
+        messageList.innerHTML = '<li>No messages received yet.</li>';
+        return;
+      }
+      submissions.forEach(msg => {
+        const li = document.createElement('li');
+        li.className = 'messageItem';
+        li.innerHTML = `
+          <div class="messageUser">Name: ${msg.username}</div>
+          <div class="messageEmail">Email: ${msg.email}</div>
+          <div class="messageText">Message: ${msg.message}</div>
+        `;
+        messageList.appendChild(li);
+      });
+    }
+    renderMessages();
+  </script>
+  <script>
+  // Load messages from localStorage and display
+  function renderMessages() {
+    const messageList = document.getElementById('messageList');
+    messageList.innerHTML = '';
+    const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+    if (submissions.length === 0) {
+      messageList.innerHTML = '<li>No messages received yet.</li>';
+      return;
+    }
+    submissions.forEach(msg => {
+      const li = document.createElement('li');
+      li.className = 'messageItem';
+      li.innerHTML = `
+        <div class="messageUser">Name: ${msg.username}</div>
+        <div class="messageEmail">Email: ${msg.email}</div>
+        <div class="messageText">Message: ${msg.message}</div>
+      `;
+      messageList.appendChild(li);
+    });
+  }
+  renderMessages();
+</script>
+</body>
+</html>

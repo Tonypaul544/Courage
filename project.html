@@ -44,6 +44,12 @@
   <div class="projectPage">
     <h1 class="projectTitle">My Projects</h1>
     <p class="projectDesc">Here are some of the projects I've worked on:</p>
+
+    
+    <div class="projectResponce">
+      <!-- <p class="msg"></p> -->
+    </div>
+
     <ul class="projectList">
       <li class="projectItem">
         <img src="https://i.pinimg.com/1200x/75/6a/a3/756aa3c54d6e62e9ea445745763992b2.jpg" alt="" class="projectIMG">
@@ -57,8 +63,8 @@
         <p id="projectDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea harum eos obcaecati, culpa cumque sapiente, omnis maxime iusto, consectetur iure officiis quisquam eum dolorem. Omnis inventore eveniet magnam id natus.</p>
 
         <div class="projectButtons">
-          <!-- <button class="jrojectBTN BTN2" id="viewProject"></button> -->
-          <button class="jrojectBTN BTN1" id="viewProject">View Project</button>
+          <!-- <button class="projectBTN BTN2" id="viewProject"></button> -->
+          <button class="projectBTN BTN1" id="viewProject">View Project</button>
         </div>
       </li>
 
@@ -71,11 +77,12 @@
         <h5 class="subheading">Sub heading</h5>
         </div>
 
+
         <p id="projectDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea harum eos obcaecati, culpa cumque sapiente, omnis maxime iusto, consectetur iure officiis quisquam eum dolorem. Omnis inventore eveniet magnam id natus.</p>
 
         <div class="projectButtons">
-          <!-- <button class="jrojectBTN BTN2" id="viewProject"></button> -->
-          <button class="jrojectBTN BTN1" id="viewProject">View Project</button>
+          <!-- <button class="projectBTN BTN2" id="viewProject"></button> -->
+          <button class="projectBTN BTN1" id="viewProject">View Project</button>
         </div>
       </li>
       
@@ -91,13 +98,20 @@
         <p id="projectDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea harum eos obcaecati, culpa cumque sapiente, omnis maxime iusto, consectetur iure officiis quisquam eum dolorem. Omnis inventore eveniet magnam id natus.</p>
 
         <div class="projectButtons">
-          <!-- <button class="jrojectBTN BTN2" id="viewProject"></button> -->
-          <button class="jrojectBTN BTN1" id="viewProject">View Project</button>
+          <!-- <button class="projectBTN BTN2" id="viewProject"></button> -->
+          <button class="projectBTN BTN1" id="viewProject">View Project</button>
         </div>
       </li>
     </ul>
   </div>
 
   <script src="header.js"></script>
+  <script src="projects.js"></script>
+  <script>
+    // Hide admin panel button if user is not admin
+    if (localStorage.getItem('isAdmin') !== 'true') {
+      document.getElementById('adminNavBtn').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
