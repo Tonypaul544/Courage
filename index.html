@@ -16,6 +16,102 @@
 
   <title>Courage</title>
 </head>
+<style>
+  
+/* Role modal buttons - styles for selectAdmin / selectGuest + related modal buttons */
+#roleModal button#selectAdmin,
+#roleModal button#selectGuest,
+#roleModal button#submitAdminCode,
+#roleModal button#tryAgainBtn,
+#roleModal button#visitGuestBtn {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  padding: 0.6rem 1.05rem;
+  border-radius: 10px;
+  border: 0;
+  min-width: 120px;
+  transition: transform .16s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease, opacity .12s ease, background-color .12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  user-select: none;
+  box-shadow: 0 8px 20px rgba(8,18,26,0.06);
+}
+
+/* Primary admin button */
+#roleModal button#selectAdmin,
+#roleModal button#submitAdminCode {
+  background: linear-gradient(180deg,#2d5c3b 0%,#244a31 100%);
+  color: #fff;
+  border: 0;
+}
+
+/* Guest / secondary buttons */
+#roleModal button#selectGuest,
+#roleModal button#tryAgainBtn,
+#roleModal button#visitGuestBtn {
+  background: transparent;
+  color: #2d5c3b;
+  border: 2px solid rgba(45,92,59,0.18);
+}
+
+/* Hover effects */
+#roleModal button#selectAdmin:hover,
+#roleModal button#submitAdminCode:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(36,74,49,0.16);
+}
+
+#roleModal button#selectGuest:hover,
+#roleModal button#tryAgainBtn:hover,
+#roleModal button#visitGuestBtn:hover {
+  transform: translateY(-3px);
+  background: rgba(45,92,59,0.06);
+  box-shadow: 0 14px 30px rgba(36,74,49,0.08);
+}
+
+/* Active / pressed states */
+#roleModal button:active {
+  transform: translateY(0) scale(.985);
+  box-shadow: 0 6px 14px rgba(8,18,26,0.06);
+  transition: transform .06s ease;
+}
+
+/* Focus visible for accessibility */
+#roleModal button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(45,92,59,0.12);
+  border-radius: 10px;
+}
+
+/* Small pop-in animation when adminCodeSection or wrongCodeActions appears */
+@keyframes modalBtnPop {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+#adminCodeSection button,
+#wrongCodeActions button {
+  animation: modalBtnPop .22s ease;
+}
+
+/* Tweak the inline input in modal to match buttons visually */
+#roleModal #adminCodeInput {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: box-shadow .12s ease, border-color .12s ease, transform .12s ease;
+}
+#roleModal #adminCodeInput:focus {
+  box-shadow: 0 10px 22px rgba(36,74,49,0.06);
+  border-color: rgba(45,92,59,0.24);
+  transform: translateY(-1px);
+}
+
+/* ...existing code... */
+</style>
 <body>
   <!-- Role selection modal -->
   <div id="roleModal" style="
@@ -117,14 +213,15 @@
     };
 
     submitAdminCode.onclick = function() {
-      if (adminCodeInput.value === "tonypaul544") {
+      if (adminCodeInput.value === "tony544") {
         localStorage.setItem('isAdmin', 'true');
         roleModal.style.display = "none";
         if (adminNavBtn) adminNavBtn.style.display = "";
       } else {
-        adminCodeError.textContent = "Incorrect code!";
-        wrongCodeActions.style.display = "block";
-        adminCodeSection.style.display = "none";
+      // Updated error message as requested
+        adminCodeError.textContent = 'passcode does not match. try again or proceed as a gurst';
+        wrongCodeActions.style.display = 'block';
+        adminCodeSection.style.display = 'none';
       }
     };
 
