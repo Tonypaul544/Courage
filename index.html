@@ -144,7 +144,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="project.html">Projects</a></li>
         <li><a href="auth.html">Contact</a></li>
-        <li id="adminNavBtn"><a href="admin.html">Admin</a></li> 
+        <li id="adminNavBtn"><a href="admin.html">Admin</a></li>
+        <li id="changeRoleNav"><button id="changeRoleBtn" class="modal-btn" style="background:transparent;border:2px solid rgba(45,92,59,0.14);padding:.45rem .8rem;border-radius:8px;" color="white">Role</button></li>
       </ul>
     </nav>
     <div class="headerIcons">
@@ -199,6 +200,21 @@
     const tryAgainBtn = document.getElementById('tryAgainBtn');
     const visitGuestBtn = document.getElementById('visitGuestBtn');
     const adminNavBtn = document.getElementById('adminNavBtn');
+    
+    const changeRoleBtn = document.getElementById('changeRoleBtn');
+
+      // open role modal for role change
+      if (changeRoleBtn) {
+        changeRoleBtn.addEventListener('click', () => {
+          // reset modal UI
+          adminCodeSection.style.display = 'none';
+          wrongCodeActions.style.display = 'none';
+          adminCodeInput.value = '';
+          adminCodeError.textContent = '';
+          roleModal.style.display = 'flex';
+        });
+     }
+
 
     selectAdmin.onclick = function() {
       adminCodeSection.style.display = "block";
