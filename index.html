@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +17,29 @@
   <title>Courage</title>
 </head>
 <body>
+  <!-- Role selection modal -->
+  <div id="roleModal" style="
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;">
+    <div style="
+      background: #fff; padding: 2em; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); text-align: center; min-width: 300px;">
+      <h2>Welcome!</h2>
+      <p>Are you an admin or a guest?</p>
+      <button id="selectAdmin" style="margin: 0.5em 1em;">Admin</button>
+      <button id="selectGuest" style="margin: 0.5em 1em;">Guest</button>
+      <div id="adminCodeSection" style="display:none; margin-top:1em;">
+        <input type="password" id="adminCodeInput" placeholder="Enter admin pass code" style="padding:0.5em; width:80%; margin-bottom:0.5em;">
+        <button id="submitAdminCode">Submit</button>
+        <div id="adminCodeError" style="color:red; margin-top:0.5em;"></div>
+      </div>
+      <div id="wrongCodeActions" style="display:none; margin-top:1em;">
+        <button id="tryAgainBtn" style="margin:0.5em 1em;">Try Again</button>
+        <button id="visitGuestBtn" style="margin:0.5em 1em;">Visit as Guest</button>
+      </div>
+    </div>
+  </div>
+  <!-- End modal -->
+
   <header>
     <h2 class="logo">Courage</h2>
     <nav>
@@ -26,7 +48,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="project.html">Projects</a></li>
         <li><a href="auth.html">Contact</a></li>
-        <li><a href="admin.html">Admin</a></li> 
+        <li id="adminNavBtn"><a href="admin.html">Admin</a></li> 
       </ul>
     </nav>
     <div class="headerIcons">
@@ -48,7 +70,6 @@
       <div class="desc">
         <p class="AboutMe">A  Software Engineer from Enugu, Nigeria with 2+ years of experience in front-end development. I specialize in React, Node.js, HTML, CSS, and JavaScript, building clean, responsive, and user-friendly web applications. Let`s connect!
         </p>
-
       </div>
       <div class="buttons">
         <a href="auth.html">
@@ -63,5 +84,77 @@
     </div>
   </div>
   <script src="header.js"></script>
+  <script>
+    // Hide admin nav button by default
+    document.addEventListener("DOMContentLoaded", function() {
+      const adminNavBtn = document.getElementById('adminNavBtn');
+      if (adminNavBtn) adminNavBtn.style.display = "none";
+    });
+
+    // Modal logic
+    const roleModal = document.getElementById('roleModal');
+    const selectAdmin = document.getElementById('selectAdmin');
+    const selectGuest = document.getElementById('selectGuest');
+    const adminCodeSection = document.getElementById('adminCodeSection');
+    const submitAdminCode = document.getElementById('submitAdminCode');
+    const adminCodeInput = document.getElementById('adminCodeInput');
+    const adminCodeError = document.getElementById('adminCodeError');
+    const wrongCodeActions = document.getElementById('wrongCodeActions');
+    const tryAgainBtn = document.getElementById('tryAgainBtn');
+    const visitGuestBtn = document.getElementById('visitGuestBtn');
+    const adminNavBtn = document.getElementById('adminNavBtn');
+
+    selectAdmin.onclick = function() {
+      adminCodeSection.style.display = "block";
+      adminCodeError.textContent = "";
+      wrongCodeActions.style.display = "none";
+    };
+
+    selectGuest.onclick = function() {
+      localStorage.setItem('isAdmin', 'false');
+      roleModal.style.display = "none";
+      if (adminNavBtn) adminNavBtn.style.display = "none";
+    };
+
+    submitAdminCode.onclick = function() {
+      if (adminCodeInput.value === "tonypaul544") {
+        localStorage.setItem('isAdmin', 'true');
+        roleModal.style.display = "none";
+        if (adminNavBtn) adminNavBtn.style.display = "";
+      } else {
+        adminCodeError.textContent = "Incorrect code!";
+        wrongCodeActions.style.display = "block";
+        adminCodeSection.style.display = "none";
+      }
+    };
+
+    tryAgainBtn.onclick = function() {
+      adminCodeSection.style.display = "block";
+      wrongCodeActions.style.display = "none";
+      adminCodeInput.value = "";
+      adminCodeError.textContent = "";
+    };
+
+    visitGuestBtn.onclick = function() {
+      localStorage.setItem('isAdmin', 'false');
+      roleModal.style.display = "none";
+      if (adminNavBtn) adminNavBtn.style.display = "none";
+    };
+    
+
+    // On page load, check if isAdmin is set
+    window.onload = function() {
+      if (localStorage.getItem('isAdmin') === 'true') {
+        roleModal.style.display = "none";
+        if (adminNavBtn) adminNavBtn.style.display = "";
+      } else if (localStorage.getItem('isAdmin') === 'false') {
+        roleModal.style.display = "none";
+        if (adminNavBtn) adminNavBtn.style.display = "none";
+      } else {
+        roleModal.style.display = "flex";
+        if (adminNavBtn) adminNavBtn.style.display = "none";
+      }
+    };
+  </script>
 </body>
 </html>
